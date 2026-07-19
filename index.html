@@ -3,163 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>matt0k · portfolio</title>
-  <meta name="description" content="matt0k — développeur de 17 ans. Créateur de RebornMC, TokRouter et PinStudio. J'aime construire des systèmes et des projets." />
+  <title>matt0k — développeur</title>
+  <meta name="description" content="matt0k — développeur suisse de 17 ans. Je construis des systèmes, des serveurs et des outils. RebornMC, TokRouter, PinStudio." />
   <meta name="author" content="matt0k" />
-  <meta name="theme-color" content="#050713" />
+  <meta name="theme-color" content="#0d0d0e" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="matt0k · portfolio" />
-  <meta property="og:description" content="Développeur de 17 ans. Créateur de RebornMC, TokRouter et PinStudio." />
-  <meta property="og:site_name" content="matt0k" />
+  <meta property="og:title" content="matt0k — développeur" />
+  <meta property="og:description" content="Je construis des systèmes, des serveurs et des outils depuis mes 12 ans." />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👑%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d0d0e'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='20' fill='%23ece9e3' text-anchor='middle'%3Em%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Animated starfield background -->
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <div class="aurora" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- Navigation -->
-  <header class="nav" id="nav">
-    <a href="#top" class="nav__logo">
-      <span class="nav__crown">👑</span>
-      <span class="wordmark">matt0k</span>
-    </a>
-    <nav class="nav__links" aria-label="Navigation principale">
+  <header class="topbar">
+    <a href="#top" class="topbar__name">matt0k</a>
+    <nav class="topbar__nav" aria-label="Navigation">
       <a href="#about">À propos</a>
-      <a href="#skills">Compétences</a>
-      <a href="#projects">Projets</a>
+      <a href="#work">Projets</a>
+      <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero__inner reveal">
-        <p class="hero__status">
-          <span class="dot"></span> Disponible pour de nouveaux projets
-        </p>
-        <h1 class="hero__title wordmark">matt0k</h1>
-        <p class="hero__role">
-          <span id="typed"></span><span class="cursor">|</span>
-        </p>
-        <p class="hero__tagline">
-          Développeur de 17 ans qui aime construire des <em>systèmes</em> et des <em>projets</em>.
-          Je code depuis mes 12 ans — aujourd'hui je tiens
-          <a href="https://rebornmc.fr" target="_blank" rel="noopener">RebornMC</a> &amp;
-          <a href="https://tokrouter.mattok.ch" target="_blank" rel="noopener">TokRouter</a>.
-        </p>
-        <div class="hero__actions">
-          <a href="#projects" class="btn btn--primary">Voir mes projets</a>
-          <a href="https://github.com/LeVraiMattokDev" target="_blank" rel="noopener" class="btn btn--ghost">
-            GitHub ↗
-          </a>
-        </div>
-        <div class="hero__chips">
-          <span class="chip">Full-stack</span>
-          <span class="chip">Minecraft dev</span>
-          <span class="chip">IA / API</span>
-          <span class="chip">Game dev</span>
-        </div>
-      </div>
-      <a href="#about" class="scroll-hint" aria-label="Descendre">
-        <span></span>
-      </a>
+  <main id="top" class="wrap">
+
+    <!-- INTRO -->
+    <section class="intro">
+      <p class="eyebrow reveal">
+        <span class="pin"></span> Suisse · Développeur · Disponible
+      </p>
+      <h1 class="lead reveal">
+        Je construis des <em>systèmes</em>, des serveurs et des outils
+        depuis mes <em>douze&nbsp;ans</em>.
+      </h1>
+      <p class="lead__sub reveal">
+        Salut, moi c'est <strong>matt0k</strong> — développeur de 17 ans. J'ai commencé avec des
+        plugins Minecraft, aujourd'hui je tiens
+        <a href="https://rebornmc.fr" target="_blank" rel="noopener">RebornMC</a> et je développe
+        <a href="https://tokrouter.mattok.ch" target="_blank" rel="noopener">TokRouter</a>
+        sous ma structure <a href="https://pinstudio.mattok.ch" target="_blank" rel="noopener">PinStudio</a>.
+      </p>
+      <p class="intro__links reveal">
+        <a href="https://github.com/LeVraiMattokDev" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:cerdeiramathys@gmail.com">Email</a>
+        <a href="https://www.instagram.com/mathys.ce" target="_blank" rel="noopener">Instagram</a>
+      </p>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="section__head reveal">
-        <span class="section__index">01</span>
-        <h2 class="section__title">À propos</h2>
-      </div>
-      <div class="about">
-        <div class="about__text reveal">
-          <p>
-            Salut, moi c'est <strong>matt0k</strong> 👋 — un développeur passionné par la création
-            de systèmes qui tournent bien. J'ai <strong>17 ans</strong> et j'ai commencé la programmation
-            à <strong>12 ans</strong> en écrivant des plugins pour serveurs Minecraft.
-          </p>
-          <p>
-            Depuis, j'ai élargi mon terrain de jeu : back-end, front-end, infrastructure, IA et
-            jeux vidéo. Aujourd'hui je dirige <a href="https://pinstudio.mattok.ch" target="_blank" rel="noopener">PinStudio</a>,
-            la maison-mère de tous mes projets, et je fais tourner le serveur <a href="https://rebornmc.fr" target="_blank" rel="noopener">RebornMC</a>.
-          </p>
-          <p>
-            J'aime les projets ambitieux : centraliser des dizaines de modèles d'IA sous un seul
-            abonnement, faire vivre une communauté de joueurs, ou développer mon propre jeu.
-          </p>
-        </div>
-        <div class="about__stats reveal">
-          <div class="stat">
-            <span class="stat__num" data-count="17">0</span>
-            <span class="stat__label">ans</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num" data-count="5">0</span>
-            <span class="stat__label">ans de code</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num" data-count="3">0</span>
-            <span class="stat__label">projets phares</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">∞</span>
-            <span class="stat__label">idées en tête</span>
-          </div>
-        </div>
+    <section class="block" id="about">
+      <div class="block__label reveal"><span>01</span> À propos</div>
+      <div class="prose reveal">
+        <p>
+          J'aime comprendre comment les choses tiennent debout, puis les construire moi-même.
+          À 12 ans j'écrivais des plugins pour serveurs Minecraft&nbsp;; depuis, mon terrain de jeu
+          s'est élargi au back-end, à l'infrastructure, à l'IA et aux jeux vidéo.
+        </p>
+        <p>
+          Aujourd'hui je fais tourner une communauté de joueurs sur <em>RebornMC</em>, je conçois
+          une passerelle qui unifie des dizaines de modèles d'IA avec <em>TokRouter</em>, et je
+          développe mes propres jeux sous <em>PinStudio</em>. Les projets ambitieux et les
+          systèmes bien pensés, c'est ce qui me fait avancer.
+        </p>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <div class="section__head reveal">
-        <span class="section__index">02</span>
-        <h2 class="section__title">Compétences</h2>
-      </div>
-      <p class="section__lead reveal">Mon tech stack — les langages, frameworks et outils que j'utilise au quotidien.</p>
-      <div class="skills" id="skills-grid"></div>
+    <!-- WORK -->
+    <section class="block" id="work">
+      <div class="block__label reveal"><span>02</span> Projets sélectionnés</div>
+      <ul class="work" id="work-list"></ul>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="section__head reveal">
-        <span class="section__index">03</span>
-        <h2 class="section__title">Projets</h2>
-      </div>
-      <div class="projects" id="projects-grid"></div>
+    <!-- STACK -->
+    <section class="block" id="stack">
+      <div class="block__label reveal"><span>03</span> Stack technique</div>
+      <dl class="stack" id="stack-list"></dl>
     </section>
 
     <!-- CONTACT -->
-    <section class="section section--contact" id="contact">
-      <div class="contact reveal">
-        <span class="section__index">04</span>
-        <h2 class="contact__title">Travaillons ensemble</h2>
-        <p class="contact__lead">
-          Un projet, une idée, ou juste envie de discuter ? Ma boîte est toujours ouverte.
-        </p>
-        <a href="mailto:cerdeiramathys@gmail.com" class="btn btn--primary btn--lg">Me contacter</a>
-        <div class="socials" id="socials"></div>
-      </div>
+    <section class="block block--contact" id="contact">
+      <div class="block__label reveal"><span>04</span> Contact</div>
+      <h2 class="contact__line reveal">
+        Un projet, une idée, ou juste envie de discuter&nbsp;? <em>Écris-moi.</em>
+      </h2>
+      <ul class="contact__list reveal" id="contact-list"></ul>
     </section>
+
   </main>
 
-  <footer class="footer">
-    <span class="wordmark footer__logo">matt0k</span>
-    <p>© <span id="year"></span> matt0k — Conçu &amp; codé avec ☕ &amp; ⭐</p>
+  <footer class="foot wrap">
+    <span>matt0k</span>
+    <span>© <span id="year"></span> — conçu &amp; codé maison</span>
   </footer>
 
   <script src="script.js"></script>

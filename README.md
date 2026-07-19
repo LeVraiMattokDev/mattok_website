@@ -2,13 +2,13 @@
 
 Portfolio personnel de **matt0k** — développeur de 17 ans, créateur de RebornMC, TokRouter et PinStudio.
 
-Site statique, sans build, dans un thème sombre et minimaliste inspiré d'un ciel étoilé (bleu électrique).
+Site statique, sans build. Direction **éditoriale / typographique** : une seule colonne, beaucoup d'espace blanc, un serif élégant (*Instrument Serif*) mêlé à du monospace, sur un noir chaud presque monochrome — dans l'esprit des portfolios d'antfu.me, Brittany Chiang & co.
 
 ## 🚀 Aperçu
 
 - **`index.html`** — structure de la page
-- **`styles.css`** — thème, mise en page, animations
-- **`script.js`** — starfield animé, effet machine à écrire, compteurs, contenu dynamique (compétences, projets, réseaux)
+- **`styles.css`** — thème, typographie, mise en page
+- **`script.js`** — contenu (projets, stack, contact) + apparition au scroll
 
 Aucune dépendance à installer : ouvre simplement `index.html` dans un navigateur, ou lance un petit serveur local :
 
@@ -21,9 +21,9 @@ python3 -m http.server 8080
 
 Le contenu est centralisé pour être facile à modifier :
 
-- **Compétences / Projets / Réseaux** → tableaux `SKILLS`, `PROJECTS`, `SOCIALS` en haut de `script.js`
-- **Bio & textes** → directement dans `index.html`
-- **Couleurs** → variables CSS dans `:root` (voir `--accent`, `--accent-2`) au début de `styles.css`
+- **Projets / Stack / Contact** → tableaux `WORK`, `STACK`, `CONTACT` en haut de `script.js`
+- **Bio & textes d'intro** → directement dans `index.html`
+- **Couleurs & typo** → variables CSS dans `:root` (voir `--accent`, `--serif`) au début de `styles.css`
 
 ## 🌐 Déploiement (GitHub Pages)
 
