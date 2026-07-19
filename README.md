@@ -25,12 +25,17 @@ Le contenu est centralisé pour être facile à modifier :
 - **Bio & textes d'intro** → directement dans `index.html`
 - **Couleurs & typo** → variables CSS dans `:root` (voir `--accent`, `--serif`) au début de `styles.css`
 
-## 🌐 Déploiement (GitHub Pages)
+## 🌐 Déploiement (GitHub Pages, sans Actions)
 
-Un workflow GitHub Actions (`.github/workflows/deploy.yml`) publie automatiquement le site sur GitHub Pages à chaque push sur `main`.
+Site 100 % statique → aucune GitHub Action nécessaire (donc aucune facturation).
+GitHub Pages sert les fichiers directement depuis la branche.
 
-1. Sur GitHub : **Settings → Pages → Build and deployment → Source : GitHub Actions**
-2. Pousse sur `main` — le site se déploie tout seul.
+> ⚠️ Pages gratuit exige un repo **public**. Sur un repo privé, il faut GitHub Pro.
+
+1. Rends le repo **public** : **Settings → General → Danger zone → Change visibility → Public**
+2. **Settings → Pages → Build and deployment → Source : _Deploy from a branch_**
+3. Choisis la branche (`main` après merge) et le dossier `/ (root)`, puis **Save**
+4. Le site sort sur `https://levraimattokdev.github.io/mattok_website/` après 1-2 min
 
 ### Domaine personnalisé (mattok.ch)
 
