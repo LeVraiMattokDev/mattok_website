@@ -8,22 +8,22 @@ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').mat
 const WORK = [
   {
     name: 'RebornMC',
-    meta: 'Serveur Minecraft',
-    desc: 'Mon serveur de survie en 1.21.8 — systèmes, mécaniques et plugins maison, une communauté que je fais vivre au quotidien.',
+    meta: 'Minecraft',
+    desc: 'Serveur survie, 1.21.8.',
     href: 'https://rebornmc.fr',
     go: 'rebornmc.fr',
   },
   {
     name: 'TokRouter',
     meta: 'IA · API',
-    desc: 'Une passerelle qui réunit des dizaines de modèles d\'IA derrière une seule API et un seul abonnement.',
+    desc: 'Des dizaines de modèles d\'IA, une seule API.',
     href: 'https://tokrouter.mattok.ch',
     go: 'tokrouter.mattok.ch',
   },
   {
     name: 'PinStudio',
     meta: 'Studio · Jeux',
-    desc: 'Ma structure : la maison-mère de tous mes projets et l\'atelier où je développe mes jeux vidéo.',
+    desc: 'Mon studio & mes jeux.',
     href: 'https://pinstudio.mattok.ch',
     go: 'pinstudio.mattok.ch',
   },
@@ -35,15 +35,6 @@ const STACK = [
   { key: 'Back · Data', primary: ['Node.js', 'PostgreSQL'], rest: ['Laravel', 'MySQL', 'MariaDB', 'Redis', 'SQLite'] },
   { key: 'Infra',       primary: ['Docker'], rest: ['Nginx', 'Cloudflare', 'Supabase', 'Firebase'] },
   { key: 'Outils',      primary: ['Git'], rest: ['Godot', 'Gradle', 'GitHub'] },
-];
-
-/* Musique — mets ici tes vrais sons. Le premier s'affiche en grand.
-   (Wired manuellement pour l'instant — on peut brancher l'API Spotify plus tard.) */
-const NOW = { track: 'Wdik', artist: 'PLAYROOM' };
-const ROTATION = [
-  { track: 'PLAYROOM', artist: 'l\'album en boucle' },
-  { track: 'Ton prochain son', artist: 'à compléter' },
-  { track: 'Ton prochain son', artist: 'à compléter' },
 ];
 
 const CONTACT = [
@@ -80,30 +71,6 @@ if (stackList) {
       </div>
     `;
   }).join('');
-}
-
-/* ---------- Render: music ---------- */
-const np = document.getElementById('now-playing');
-if (np) {
-  np.innerHTML = `
-    <div class="np__cover">♪</div>
-    <div class="np__body">
-      <div class="np__eyebrow">
-        <span class="eq"><i></i><i></i><i></i></span> En ce moment
-      </div>
-      <div class="np__track">${NOW.track}</div>
-      <div class="np__artist">${NOW.artist}</div>
-    </div>
-  `;
-}
-const rotation = document.getElementById('rotation');
-if (rotation) {
-  rotation.innerHTML = ROTATION.map((r) => `
-    <li class="reveal">
-      <span class="rotation__track">${r.track}</span>
-      <span class="rotation__artist">${r.artist}</span>
-    </li>
-  `).join('');
 }
 
 /* ---------- Render: contact ---------- */
