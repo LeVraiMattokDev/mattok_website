@@ -29,19 +29,27 @@ python3 -m http.server 8080   # puis http://localhost:8080
 
 [GoatCounter](https://www.goatcounter.com) est actif (`mattok.goatcounter.com`), sans cookies ni données personnelles. Le script est en bas de `index.html` ; les stats sont sur https://mattok.goatcounter.com.
 
-## 🌐 Déploiement (GitHub Pages, sans Actions)
+## 🌐 Héberger
 
-Site 100 % statique → aucune GitHub Action (donc aucune facturation).
+Site 100 % statique, sans build ni dépendance : sers simplement le dossier
+avec n'importe quel serveur web (auto-hébergé : Nginx, Caddy, Apache… ou tout
+hébergeur statique). Toutes les URLs internes sont **relatives**, donc le site
+fonctionne quel que soit le domaine, sans reconfiguration.
 
-> ⚠️ Pages gratuit exige un repo **public**. Sur un repo privé, il faut GitHub Pro.
+Exemple Nginx :
 
-1. Rends le repo **public** : **Settings → General → Danger zone → Change visibility**
-2. **Settings → Pages → Source : _Deploy from a branch_** → branche `main`, dossier `/ (root)`
-3. Le site sort sur `https://levraimattokdev.github.io/mattok_website/` après 1-2 min
+```nginx
+server {
+  listen 80;
+  server_name _;
+  root /var/www/mattok_website;
+  index index.html;
+}
+```
 
-### Domaine personnalisé (mattok.ch)
-
-Ajoute un fichier `CNAME` contenant `mattok.ch`, puis configure les DNS chez ton registrar (apex → IP GitHub Pages, ou `www` → `levraimattokdev.github.io`). Les URLs SEO (`canonical`, Open Graph, `sitemap.xml`, `robots.txt`, `llms.txt`) pointent déjà vers `https://mattok.ch/`.
+> Les balises `og:image` / `twitter:image` sont relatives (portable). Pour un
+> aperçu de partage optimal sur un domaine fixe, tu peux les repasser en URL
+> absolue (`https://ton-domaine/og.png`).
 
 ## Sections
 

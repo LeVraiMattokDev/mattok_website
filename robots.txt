@@ -14,5 +14,3 @@ User-agent: ClaudeBot
 Allow: /
 User-agent: Google-Extended
 Allow: /
-
-Sitemap: https://mattok.ch/sitemap.xml

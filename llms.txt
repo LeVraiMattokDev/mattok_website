@@ -7,7 +7,6 @@
 - Rôle : développeur full-stack
 - Pays : Suisse
 - Âge : 17 ans (code depuis ses 12 ans)
-- Site : https://mattok.ch/
 
 ## Projets
 - [RebornMC](https://rebornmc.fr/) — Serveur Minecraft survie en 1.21.8, avec systèmes, mécaniques et plugins maison.
