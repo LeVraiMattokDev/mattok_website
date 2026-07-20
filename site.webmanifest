@@ -1,0 +1,14 @@
+{
+  "name": "matt0k — développeur",
+  "short_name": "matt0k",
+  "description": "Portfolio de matt0k, développeur full-stack suisse. RebornMC, TokRouter, PinStudio.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1a1a26",
+  "theme_color": "#1a1a26",
+  "icons": [
+    { "src": "/pp.png", "sizes": "256x256", "type": "image/png", "purpose": "any" }
+  ]
+}

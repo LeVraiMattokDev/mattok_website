@@ -63,7 +63,7 @@ if (workList) {
 const stackList = document.getElementById('stack-list');
 if (stackList) {
   stackList.innerHTML = STACK.map((s) => {
-    const items = [...s.primary.map((t) => `<span>${t}</span>`), ...s.rest].join('<i>·</i>');
+    const items = [...s.primary.map((t) => `<span>${t}</span>`), ...s.rest].join(' <i>·</i> ');
     return `
       <div class="stack__row reveal">
         <dt class="stack__key">${s.key}</dt>

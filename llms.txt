@@ -1,0 +1,27 @@
+# matt0k
+
+> matt0k (Mathys) est un développeur full-stack suisse de 17 ans. Il construit des systèmes, des serveurs et des jeux. Il code depuis ses 12 ans, avec des débuts sur des plugins Minecraft.
+
+## Profil
+- Nom / pseudo : matt0k
+- Rôle : développeur full-stack
+- Pays : Suisse
+- Âge : 17 ans (code depuis ses 12 ans)
+- Site : https://mattok.ch/
+
+## Projets
+- [RebornMC](https://rebornmc.fr/) — Serveur Minecraft survie en 1.21.8, avec systèmes, mécaniques et plugins maison.
+- [TokRouter](https://tokrouter.mattok.ch/) — Application et API qui unifient des dizaines de modèles d'intelligence artificielle derrière une seule API et un seul abonnement.
+- [PinStudio](https://pinstudio.mattok.ch/) — Studio de matt0k : maison-mère de ses projets et développement de jeux vidéo.
+
+## Stack technique
+- Langages : Java, Kotlin, TypeScript, JavaScript, Python, PHP
+- Front : React, Next.js, Vue.js, TailwindCSS, Three.js
+- Back / Data : Node.js, Laravel, PostgreSQL, MySQL, MariaDB, Redis, SQLite
+- Infra : Docker, Nginx, Cloudflare, Supabase, Firebase
+- Outils : Git, Godot, Gradle, GitHub
+
+## Contact
+- Email : cerdeiramathys@gmail.com
+- GitHub : https://github.com/LeVraiMattokDev
+- Instagram : https://www.instagram.com/mathys.ce

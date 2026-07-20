@@ -2,17 +2,66 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>matt0k — dev</title>
-  <meta name="description" content="matt0k — dev suisse de 17 ans. RebornMC, TokRouter, PinStudio. 👑" />
-  <meta name="author" content="matt0k" />
-  <meta name="theme-color" content="#0a0b11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="matt0k — dev" />
-  <meta property="og:description" content="Dev suisse de 17 ans. RebornMC, TokRouter, PinStudio." />
+  <title>matt0k — Développeur full-stack suisse | RebornMC, TokRouter, PinStudio</title>
+  <meta name="description" content="matt0k, développeur full-stack suisse de 17 ans. Je construis des systèmes, des serveurs et des jeux : RebornMC (serveur Minecraft 1.21.8), TokRouter (passerelle IA) et PinStudio (studio de jeux). Java, Kotlin, TypeScript, React, Node.js." />
+  <meta name="author" content="matt0k" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#1a1a26" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://mattok.ch/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="matt0k" />
+  <meta property="og:title" content="matt0k — Développeur full-stack suisse" />
+  <meta property="og:description" content="Dev suisse de 17 ans. Je construis des systèmes, des serveurs et des jeux : RebornMC, TokRouter, PinStudio." />
+  <meta property="og:url" content="https://mattok.ch/" />
+  <meta property="og:image" content="https://mattok.ch/pp.png" />
+  <meta property="og:image:alt" content="Avatar de matt0k" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="profile:username" content="matt0k" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="matt0k — Développeur full-stack suisse" />
+  <meta name="twitter:description" content="Dev suisse de 17 ans. RebornMC, TokRouter, PinStudio." />
+  <meta name="twitter:image" content="https://mattok.ch/pp.png" />
 
   <link rel="icon" href="pp.png" />
+  <link rel="apple-touch-icon" href="pp.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Structured data (SEO + GEO / moteurs génératifs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "matt0k",
+    "alternateName": "Mathys",
+    "url": "https://mattok.ch/",
+    "image": "https://mattok.ch/pp.png",
+    "jobTitle": "Développeur full-stack",
+    "description": "Développeur full-stack suisse de 17 ans. Code depuis ses 12 ans, débuts sur des plugins Minecraft. Fondateur de PinStudio, à la tête de RebornMC et créateur de TokRouter.",
+    "nationality": "Suisse",
+    "knowsAbout": ["Java", "Kotlin", "TypeScript", "JavaScript", "Python", "PHP", "React", "Next.js", "Node.js", "Plugins Minecraft", "Intelligence artificielle", "APIs", "Développement de jeux vidéo", "Godot", "DevOps"],
+    "sameAs": [
+      "https://github.com/LeVraiMattokDev",
+      "https://www.instagram.com/mathys.ce"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "PinStudio",
+      "url": "https://pinstudio.mattok.ch/"
+    },
+    "subjectOf": [
+      { "@type": "CreativeWork", "name": "RebornMC", "url": "https://rebornmc.fr/", "description": "Serveur Minecraft survie en 1.21.8." },
+      { "@type": "SoftwareApplication", "name": "TokRouter", "applicationCategory": "DeveloperApplication", "url": "https://tokrouter.mattok.ch/", "description": "Passerelle unifiant des dizaines de modèles d'IA derrière une seule API." },
+      { "@type": "Organization", "name": "PinStudio", "url": "https://pinstudio.mattok.ch/", "description": "Studio de développement de jeux vidéo de matt0k." }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,11 +70,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a href="#top" class="skip-link">Aller au contenu</a>
+
   <header class="topbar">
-    <a href="#top" class="topbar__name">
+    <a href="#top" class="topbar__name" aria-label="matt0k, accueil">
       <img class="pp pp--sm" src="pp.png" alt="" width="26" height="26" /><span class="pixel">matt0k</span>
     </a>
-    <nav class="topbar__nav" aria-label="Navigation">
+    <nav class="topbar__nav" aria-label="Navigation principale">
       <a href="#work">projets</a>
       <a href="#stack">stack</a>
       <a href="#contact">contact</a>
@@ -35,43 +86,43 @@
   <main id="top" class="wrap">
 
     <!-- INTRO -->
-    <section class="intro">
+    <section class="intro" aria-label="Introduction">
       <canvas class="stars" id="stars" aria-hidden="true"></canvas>
       <div class="intro__inner">
         <div class="crest reveal">
-          <img class="pp pp--lg" src="pp.png" alt="matt0k" width="88" height="88" />
+          <img class="pp pp--lg" src="pp.png" alt="Avatar de matt0k : un personnage chibi à la couronne" width="88" height="88" fetchpriority="high" />
           <h1 class="crest__name pixel">matt0k</h1>
         </div>
         <p class="eyebrow reveal">
-          <span class="pin"></span> 17 ans · Suisse · dev
+          <span class="pin" aria-hidden="true"></span> 17 ans · Suisse · dev
         </p>
-        <h2 class="lead reveal">
+        <p class="lead reveal">
           Je construis des <em>systèmes</em>, des serveurs et des <em>jeux</em>.
-        </h2>
+        </p>
         <p class="intro__links reveal">
-          <a href="https://github.com/LeVraiMattokDev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/LeVraiMattokDev" target="_blank" rel="noopener me">GitHub</a>
           <a href="mailto:cerdeiramathys@gmail.com">Email</a>
-          <a href="https://www.instagram.com/mathys.ce" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/mathys.ce" target="_blank" rel="noopener me">Instagram</a>
         </p>
       </div>
     </section>
 
     <!-- WORK -->
-    <section class="block" id="work">
-      <div class="block__label reveal"><span>01</span> projets</div>
+    <section class="block" id="work" aria-labelledby="work-title">
+      <h2 class="block__label reveal" id="work-title"><span>01</span> projets</h2>
       <ul class="work" id="work-list"></ul>
     </section>
 
     <!-- STACK -->
-    <section class="block" id="stack">
-      <div class="block__label reveal"><span>02</span> stack</div>
+    <section class="block" id="stack" aria-labelledby="stack-title">
+      <h2 class="block__label reveal" id="stack-title"><span>02</span> stack</h2>
       <dl class="stack" id="stack-list"></dl>
     </section>
 
     <!-- CONTACT -->
-    <section class="block block--contact" id="contact">
-      <div class="block__label reveal"><span>03</span> contact</div>
-      <h2 class="contact__line reveal"><em>Écris-moi.</em></h2>
+    <section class="block block--contact" id="contact" aria-labelledby="contact-title">
+      <h2 class="block__label reveal" id="contact-title"><span>03</span> contact</h2>
+      <p class="contact__line reveal"><em>Écris-moi.</em></p>
       <ul class="contact__list reveal" id="contact-list"></ul>
     </section>
 
