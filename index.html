@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>matt0k — dev</title>
-  <meta name="description" content="matt0k — dev suisse de 17 ans. Je construis des systèmes, des serveurs et des jeux. RebornMC, TokRouter, PinStudio. 👑" />
+  <meta name="description" content="matt0k — dev suisse de 17 ans. RebornMC, TokRouter, PinStudio. 👑" />
   <meta name="author" content="matt0k" />
   <meta name="theme-color" content="#0a0b11" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="matt0k — dev" />
-  <meta property="og:description" content="Je construis des systèmes, des serveurs et des jeux — souvent la nuit, un son dans les oreilles." />
+  <meta property="og:description" content="Dev suisse de 17 ans. RebornMC, TokRouter, PinStudio." />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E👑%3C/text%3E%3C/svg%3E" />
 
@@ -26,10 +26,8 @@
       <span class="crown">👑</span><span class="pixel">matt0k</span>
     </a>
     <nav class="topbar__nav" aria-label="Navigation">
-      <a href="#about">À propos</a>
       <a href="#work">Projets</a>
       <a href="#stack">Stack</a>
-      <a href="#music">Musique</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -45,19 +43,11 @@
           <h1 class="crest__name pixel">matt0k</h1>
         </div>
         <p class="eyebrow reveal">
-          <span class="pin"></span> 17 ans · Suisse · dev depuis mes 12 ans
+          <span class="pin"></span> 17 ans · Suisse · dev
         </p>
         <h2 class="lead reveal">
-          Je construis des <em>systèmes</em>, des serveurs et des jeux —
-          souvent la nuit, un <em>son</em> dans les oreilles.
+          Je construis des <em>systèmes</em>, des serveurs et des <em>jeux</em>.
         </h2>
-        <p class="lead__sub reveal">
-          Moi c'est <strong>matt0k</strong>. J'ai commencé à 12 ans en bidouillant des plugins
-          Minecraft, et j'ai jamais vraiment lâché le clavier depuis. Aujourd'hui je tiens
-          <a href="https://rebornmc.fr" target="_blank" rel="noopener">RebornMC</a>, je code
-          <a href="https://tokrouter.mattok.ch" target="_blank" rel="noopener">TokRouter</a>, et je
-          fais mes propres jeux sous <a href="https://pinstudio.mattok.ch" target="_blank" rel="noopener">PinStudio</a>.
-        </p>
         <p class="intro__links reveal">
           <a href="https://github.com/LeVraiMattokDev" target="_blank" rel="noopener">GitHub</a>
           <a href="mailto:cerdeiramathys@gmail.com">Email</a>
@@ -66,49 +56,22 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="block" id="about">
-      <div class="block__label reveal"><span>01</span> À propos</div>
-      <div class="prose reveal">
-        <p>
-          En vrai, j'aime juste comprendre comment les trucs tiennent debout — puis les casser,
-          les reconstruire en mieux, et recommencer. Ça a démarré avec des plugins Minecraft à
-          12 ans&nbsp;; depuis, je touche à tout&nbsp;: back-end, infra, IA, jeux vidéo.
-        </p>
-        <p>
-          Je fais vivre une communauté de joueurs sur <em>RebornMC</em>, je bricole une passerelle
-          qui réunit des dizaines de modèles d'IA avec <em>TokRouter</em>, et je développe mes jeux
-          sous <em>PinStudio</em>. Les projets un peu trop ambitieux et les systèmes bien pensés,
-          c'est ce qui me tient éveillé (avec un bon son 🎧).
-        </p>
-      </div>
-    </section>
-
     <!-- WORK -->
     <section class="block" id="work">
-      <div class="block__label reveal"><span>02</span> Mes projets</div>
+      <div class="block__label reveal"><span>01</span> Projets</div>
       <ul class="work" id="work-list"></ul>
     </section>
 
     <!-- STACK -->
     <section class="block" id="stack">
-      <div class="block__label reveal"><span>03</span> Ma stack</div>
+      <div class="block__label reveal"><span>02</span> Stack</div>
       <dl class="stack" id="stack-list"></dl>
-    </section>
-
-    <!-- MUSIC -->
-    <section class="block" id="music">
-      <div class="block__label reveal"><span>04</span> Dans mes oreilles</div>
-      <div class="np reveal" id="now-playing"></div>
-      <ul class="rotation" id="rotation"></ul>
     </section>
 
     <!-- CONTACT -->
     <section class="block block--contact" id="contact">
-      <div class="block__label reveal"><span>05</span> Contact</div>
-      <h2 class="contact__line reveal">
-        Un projet, une idée, ou juste envie de parler code &amp; sons&nbsp;? <em>Écris-moi.</em>
-      </h2>
+      <div class="block__label reveal"><span>03</span> Contact</div>
+      <h2 class="contact__line reveal"><em>Écris-moi.</em></h2>
       <ul class="contact__list reveal" id="contact-list"></ul>
     </section>
 
@@ -116,7 +79,7 @@
 
   <footer class="foot wrap">
     <span class="pixel foot__logo">matt0k</span>
-    <span>👑 © <span id="year"></span> — fait maison, souvent tard</span>
+    <span>👑 © <span id="year"></span></span>
   </footer>
 
   <script src="script.js"></script>
