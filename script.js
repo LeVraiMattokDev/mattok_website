@@ -93,6 +93,65 @@ if (contactList) {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+/* ---------- Theme toggle (dark / light) ---------- */
+const themeToggle = document.getElementById('theme-toggle');
+const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+function syncToggle() {
+  if (!themeToggle) return;
+  themeToggle.textContent = isLight() ? '☀' : '☾';
+  themeToggle.setAttribute('aria-label', isLight() ? 'Passer en thème sombre' : 'Passer en thème clair');
+}
+syncToggle();
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const next = isLight() ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', next === 'light' ? '#eff1f5' : '#1a1a26');
+    syncToggle();
+  });
+}
+
+/* ---------- Copy email on click ---------- */
+if (contactList) {
+  const mail = contactList.querySelector('a[href^="mailto"]');
+  if (mail && navigator.clipboard) {
+    const val = mail.querySelector('.contact__val');
+    const orig = val ? val.textContent : '';
+    mail.setAttribute('title', 'Cliquer pour copier');
+    mail.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText('cerdeiramathys@gmail.com').then(() => {
+        if (!val) return;
+        val.textContent = 'copié ✓';
+        mail.classList.add('copied');
+        setTimeout(() => { val.textContent = orig; mail.classList.remove('copied'); }, 1600);
+      }).catch(() => { window.location.href = mail.href; });
+    });
+  }
+}
+
+/* ---------- Active section in nav ---------- */
+(function activeNav() {
+  const links = {};
+  document.querySelectorAll('.topbar__nav a').forEach((a) => {
+    links[a.getAttribute('href').slice(1)] = a;
+  });
+  if (!('IntersectionObserver' in window)) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      Object.values(links).forEach((a) => a.classList.remove('is-active'));
+      if (links[en.target.id]) links[en.target.id].classList.add('is-active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  ['work', 'stack', 'contact'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+})();
+
 /* ---------- Reveal on scroll ---------- */
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
