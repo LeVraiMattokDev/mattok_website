@@ -9,21 +9,22 @@ const WORK = [
   {
     name: 'RebornMC',
     meta: 'Minecraft',
-    desc: 'Serveur survie, 1.21.8.',
+    desc: 'Serveur de survie en 1.21.8, systèmes & plugins maison.',
     href: 'https://rebornmc.fr',
     go: 'rebornmc.fr',
+    mc: 'rebornmc.fr',
   },
   {
     name: 'TokRouter',
     meta: 'IA · API',
-    desc: 'Des dizaines de modèles d\'IA, une seule API.',
+    desc: 'Chat multi-modèles + API compatible OpenAI. GPT, Claude, Gemini, Llama… un seul abonnement.',
     href: 'https://tokrouter.mattok.ch',
     go: 'tokrouter.mattok.ch',
   },
   {
     name: 'PinStudio',
     meta: 'Studio · Jeux',
-    desc: 'Mon studio & mes jeux.',
+    desc: 'Studio indépendant de jeu vidéo suisse.',
     href: 'https://pinstudio.mattok.ch',
     go: 'pinstudio.mattok.ch',
   },
@@ -50,13 +51,32 @@ if (workList) {
   workList.innerHTML = WORK.map((w) => `
     <li class="work__item reveal">
       <a class="work__link" href="${w.href}" target="_blank" rel="noopener">
+        <span class="work__meta">
+          ${w.meta}${w.mc ? `<span class="work__live" data-mc="${w.mc}">· statut…</span>` : ''}
+        </span>
         <span class="work__name">${w.name}</span>
-        <span class="work__meta">${w.meta}</span>
         <span class="work__desc">${w.desc}</span>
         <span class="work__go">${w.go} ↗</span>
       </a>
     </li>
   `).join('');
+
+  // Live Minecraft server status (runs in the visitor's browser)
+  workList.querySelectorAll('.work__live').forEach((el) => {
+    const addr = el.dataset.mc;
+    fetch(`https://api.mcstatus.io/v2/status/java/${addr}`, { headers: { Accept: 'application/json' } })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        if (d && d.online && d.players) {
+          el.innerHTML = `<span class="d"></span>${d.players.online}/${d.players.max} en ligne`;
+          el.classList.add('online');
+        } else {
+          el.innerHTML = '<span class="d"></span>hors ligne';
+          el.classList.add('offline');
+        }
+      })
+      .catch(() => { el.remove(); });
+  });
 }
 
 /* ---------- Render: stack ---------- */
