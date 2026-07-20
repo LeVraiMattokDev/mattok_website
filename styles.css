@@ -315,6 +315,7 @@ img { max-width: 100%; height: auto; }
   background: var(--bg-soft);
 }
 .work__name {
+  grid-column: 1; grid-row: 1;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--fg);
@@ -323,23 +324,43 @@ img { max-width: 100%; height: auto; }
 .work__name::before { content: "> "; color: var(--mauve); }
 .work__link:hover .work__name { color: var(--mauve); }
 .work__meta {
+  grid-column: 2; grid-row: 1;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: lowercase;
   color: var(--muted);
   white-space: nowrap;
-  align-self: center;
+  text-align: right;
 }
+.work__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+.work__live.online { color: var(--green); }
+.work__live .d {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.work__live.online .d { box-shadow: 0 0 6px 1px rgba(166, 227, 161, 0.6); }
 .work__desc {
-  grid-column: 1 / 2;
+  grid-column: 1; grid-row: 2;
   font-size: 0.9rem;
   color: var(--body);
   max-width: 46ch;
 }
 .work__go {
-  grid-column: 2 / 3;
-  grid-row: 2;
+  grid-column: 2; grid-row: 2;
   align-self: center;
+  justify-self: end;
   font-size: 0.76rem;
   color: var(--muted);
   transition: transform 0.3s var(--ease), color 0.25s var(--ease);
@@ -451,9 +472,9 @@ img { max-width: 100%; height: auto; }
   .work__link { grid-template-columns: 1fr; gap: 6px; padding: 20px 4px 22px; }
   .work__link:hover { padding-left: 10px; padding-right: 10px; }
   .work__name { font-size: 1.15rem; }
-  .work__meta { grid-column: 1; grid-row: 2; align-self: start; }
+  .work__meta { grid-column: 1; grid-row: 2; align-self: start; align-items: flex-start; flex-direction: row; gap: 12px; text-align: left; }
   .work__desc { grid-row: 3; }
-  .work__go { grid-column: 1; grid-row: 4; align-self: start; margin-top: 2px; }
+  .work__go { grid-column: 1; grid-row: 4; align-self: start; justify-self: start; margin-top: 2px; }
 
   /* Stack: label above values */
   .stack__row { grid-template-columns: 1fr; gap: 5px; padding: 16px 0; }
