@@ -59,7 +59,15 @@ em { font-style: normal; }
   letter-spacing: 0.01em;
   -webkit-font-smoothing: none;
 }
-.crown { filter: drop-shadow(0 0 6px rgba(249, 226, 175, 0.35)); }
+/* ---------- Avatar ---------- */
+.pp {
+  display: block;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+.pp--sm { width: 26px; height: 26px; border-radius: 7px; }
+.pp--lg { width: 88px; height: 88px; border-radius: 18px; }
 
 /* ---------- Links ---------- */
 .intro__links a {
@@ -91,8 +99,9 @@ em { font-style: normal; }
   justify-content: space-between;
   max-width: var(--col);
   margin: 0 auto;
-  padding: 20px 28px;
-  background: linear-gradient(180deg, var(--bg) 55%, rgba(26,26,38,0));
+  padding: 16px 28px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line-2);
 }
 .topbar__name {
   display: inline-flex;
@@ -101,7 +110,6 @@ em { font-style: normal; }
   font-size: 0.7rem;
   color: var(--mauve);
 }
-.topbar__name .crown { font-size: 0.85rem; }
 .topbar__nav {
   display: flex;
   gap: 20px;
@@ -137,16 +145,6 @@ em { font-style: normal; }
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 30px;
-}
-.crest__crown {
-  font-size: 1.5rem;
-  line-height: 1;
-  filter: drop-shadow(0 0 10px rgba(249, 226, 175, 0.4));
-  animation: bob 4.5s var(--ease) infinite;
-}
-@keyframes bob {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50%      { transform: translateY(-5px) rotate(4deg); }
 }
 .crest__name {
   font-size: clamp(1.6rem, 6.5vw, 2.8rem);
