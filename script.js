@@ -142,8 +142,8 @@ if ('IntersectionObserver' in window) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.blue
-        ? `rgba(147, 164, 255, ${Math.max(0, a)})`
-        : `rgba(220, 224, 240, ${Math.max(0, a)})`;
+        ? `rgba(203, 166, 247, ${Math.max(0, a)})`
+        : `rgba(245, 194, 231, ${Math.max(0, a * 0.85)})`;
       ctx.fill();
     }
   }
