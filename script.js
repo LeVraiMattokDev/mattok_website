@@ -1,39 +1,49 @@
 /* ============================================
-   matt0k — editorial portfolio · script
+   matt0k — editorial × personal · script
    ============================================ */
+
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Content ---------- */
 const WORK = [
   {
     name: 'RebornMC',
     meta: 'Serveur Minecraft',
-    desc: 'Serveur de survie en 1.21.8 — systèmes, mécaniques et plugins maison, une communauté que je fais vivre au quotidien.',
+    desc: 'Mon serveur de survie en 1.21.8 — systèmes, mécaniques et plugins maison, une communauté que je fais vivre au quotidien.',
     href: 'https://rebornmc.fr',
     go: 'rebornmc.fr',
   },
   {
     name: 'TokRouter',
     meta: 'IA · API',
-    desc: 'Une passerelle qui unifie des dizaines de modèles d\'IA derrière une seule API et un seul abonnement.',
+    desc: 'Une passerelle qui réunit des dizaines de modèles d\'IA derrière une seule API et un seul abonnement.',
     href: 'https://tokrouter.mattok.ch',
     go: 'tokrouter.mattok.ch',
   },
   {
     name: 'PinStudio',
-    meta: 'Studio · Jeux vidéo',
+    meta: 'Studio · Jeux',
     desc: 'Ma structure : la maison-mère de tous mes projets et l\'atelier où je développe mes jeux vidéo.',
     href: 'https://pinstudio.mattok.ch',
     go: 'pinstudio.mattok.ch',
   },
 ];
 
-// Primary items get emphasis (var(--fg)); the rest stay muted.
 const STACK = [
-  { key: 'Langages',   primary: ['Java', 'Kotlin', 'TypeScript'], rest: ['JavaScript', 'Python', 'PHP'] },
-  { key: 'Front',      primary: ['React', 'Next.js'], rest: ['Vue.js', 'TailwindCSS', 'Three.js'] },
-  { key: 'Back · Data',primary: ['Node.js', 'PostgreSQL'], rest: ['Laravel', 'MySQL', 'MariaDB', 'Redis', 'SQLite'] },
-  { key: 'Infra',      primary: ['Docker'], rest: ['Nginx', 'Cloudflare', 'Supabase', 'Firebase'] },
-  { key: 'Outils',     primary: ['Git'], rest: ['Godot', 'Gradle', 'GitHub'] },
+  { key: 'Langages',    primary: ['Java', 'Kotlin', 'TypeScript'], rest: ['JavaScript', 'Python', 'PHP'] },
+  { key: 'Front',       primary: ['React', 'Next.js'], rest: ['Vue.js', 'TailwindCSS', 'Three.js'] },
+  { key: 'Back · Data', primary: ['Node.js', 'PostgreSQL'], rest: ['Laravel', 'MySQL', 'MariaDB', 'Redis', 'SQLite'] },
+  { key: 'Infra',       primary: ['Docker'], rest: ['Nginx', 'Cloudflare', 'Supabase', 'Firebase'] },
+  { key: 'Outils',      primary: ['Git'], rest: ['Godot', 'Gradle', 'GitHub'] },
+];
+
+/* Musique — mets ici tes vrais sons. Le premier s'affiche en grand.
+   (Wired manuellement pour l'instant — on peut brancher l'API Spotify plus tard.) */
+const NOW = { track: 'Wdik', artist: 'PLAYROOM' };
+const ROTATION = [
+  { track: 'PLAYROOM', artist: 'l\'album en boucle' },
+  { track: 'Ton prochain son', artist: 'à compléter' },
+  { track: 'Ton prochain son', artist: 'à compléter' },
 ];
 
 const CONTACT = [
@@ -62,9 +72,7 @@ if (workList) {
 const stackList = document.getElementById('stack-list');
 if (stackList) {
   stackList.innerHTML = STACK.map((s) => {
-    const prim = s.primary.map((t) => `<span>${t}</span>`);
-    const rest = s.rest.map((t) => t);
-    const items = [...prim, ...rest].join('<i>·</i>');
+    const items = [...s.primary.map((t) => `<span>${t}</span>`), ...s.rest].join('<i>·</i>');
     return `
       <div class="stack__row reveal">
         <dt class="stack__key">${s.key}</dt>
@@ -72,6 +80,30 @@ if (stackList) {
       </div>
     `;
   }).join('');
+}
+
+/* ---------- Render: music ---------- */
+const np = document.getElementById('now-playing');
+if (np) {
+  np.innerHTML = `
+    <div class="np__cover">♪</div>
+    <div class="np__body">
+      <div class="np__eyebrow">
+        <span class="eq"><i></i><i></i><i></i></span> En ce moment
+      </div>
+      <div class="np__track">${NOW.track}</div>
+      <div class="np__artist">${NOW.artist}</div>
+    </div>
+  `;
+}
+const rotation = document.getElementById('rotation');
+if (rotation) {
+  rotation.innerHTML = ROTATION.map((r) => `
+    <li class="reveal">
+      <span class="rotation__track">${r.track}</span>
+      <span class="rotation__artist">${r.artist}</span>
+    </li>
+  `).join('');
 }
 
 /* ---------- Render: contact ---------- */
@@ -100,7 +132,6 @@ if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // slight stagger for grouped items
         entry.target.style.transitionDelay = `${Math.min(i * 40, 160)}ms`;
         entry.target.classList.add('visible');
         io.unobserve(entry.target);
@@ -111,3 +142,56 @@ if ('IntersectionObserver' in window) {
 } else {
   revealEls.forEach((el) => el.classList.add('visible'));
 }
+
+/* ---------- Subtle starfield (hero only) ---------- */
+(function stars() {
+  const canvas = document.getElementById('stars');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, dpr, pts = [], raf;
+
+  function size() {
+    const r = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.width = Math.max(1, Math.floor(r.width * dpr));
+    h = canvas.height = Math.max(1, Math.floor(r.height * dpr));
+    const n = Math.min(90, Math.floor((r.width * r.height) / 9000));
+    pts = Array.from({ length: n }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: (Math.random() * 1.1 + 0.25) * dpr,
+      a: Math.random() * 0.5 + 0.15,
+      tw: Math.random() * 0.015 + 0.003,
+      ph: Math.random() * Math.PI * 2,
+      blue: Math.random() > 0.72,
+    }));
+  }
+
+  function draw(twinkle) {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of pts) {
+      if (twinkle) p.ph += p.tw;
+      const a = twinkle ? p.a + Math.sin(p.ph) * 0.22 : p.a;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.blue
+        ? `rgba(147, 164, 255, ${Math.max(0, a)})`
+        : `rgba(220, 224, 240, ${Math.max(0, a)})`;
+      ctx.fill();
+    }
+  }
+
+  function loop() { draw(true); raf = requestAnimationFrame(loop); }
+
+  size();
+  window.addEventListener('resize', () => { size(); if (prefersReduced) draw(false); }, { passive: true });
+
+  if (prefersReduced) { draw(false); }
+  else {
+    loop();
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else raf = requestAnimationFrame(loop);
+    });
+  }
+})();
