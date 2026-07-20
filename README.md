@@ -25,9 +25,9 @@ python3 -m http.server 8080   # puis http://localhost:8080
 - **Textes d'intro** → directement dans `index.html`
 - **Couleurs** → variables CSS dans `:root` (thème sombre) et `:root[data-theme="light"]` (thème clair) de `styles.css`
 
-## 📈 Analytics (optionnel, sans cookies)
+## 📈 Analytics (sans cookies)
 
-Un emplacement [GoatCounter](https://www.goatcounter.com) est prêt en commentaire à la fin de `index.html`. Crée un compte gratuit, remplace `TON-CODE`, puis dé-commente la ligne.
+[GoatCounter](https://www.goatcounter.com) est actif (`mattok.goatcounter.com`), sans cookies ni données personnelles. Le script est en bas de `index.html` ; les stats sont sur https://mattok.goatcounter.com.
 
 ## 🌐 Déploiement (GitHub Pages, sans Actions)
 
